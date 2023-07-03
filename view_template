@@ -1,5 +1,5 @@
 $view = new view();
-$view->name = 'export_articles';
+$view->name = 'export';
 $view->description = '';
 $view->tag = 'default';
 $view->base_table = 'node';
@@ -63,6 +63,7 @@ $handler->display->display_options['filters']['type']['table'] = 'node';
 $handler->display->display_options['filters']['type']['field'] = 'type';
 $handler->display->display_options['filters']['type']['value'] = array(
   'article' => 'article',
+  'page' => 'page',
 );
 /* Filter criterion: Content: Archived (field_archived) */
 $handler->display->display_options['filters']['field_archived_value']['id'] = 'field_archived_value';
