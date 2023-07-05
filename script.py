@@ -3,7 +3,7 @@ import re
 with open('export.xml', 'r') as file:
     input = file.read()
 
-site = "caps"
+site = "[SITE NAME]"
 
 # Clean the HREFs
 regex = r'href="https:\/\/' + site + r'\.umich\.edu(.*?)"'
