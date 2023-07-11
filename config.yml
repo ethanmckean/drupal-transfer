@@ -1,0 +1,9 @@
+site:
+  name: SITE NAME HERE
+  subdirectory_path_name: SUBDIRECTORY PATH NAME HERE
+  subdirectory_path: false
+  clean_href: true
+  clean_image_tags: true
+  clean_image_path: true
+  clean_button: true
+  clean_subdirectory_path: false

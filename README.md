@@ -7,8 +7,11 @@ Python3 is required for `script.py`
 
 
 TODO:
-- [ ] Add command line options (and/or args)
-- [ ] Add configuration file
+- [ ] ~~Add command line options (and/or args)~~
+  - Replaced in favor of configuration file
+- [X] Add configuration file
   - [ ] Support specifying folder with input and output xml files
-  - [ ] Support specifying domain & site name (though site name might be better as a command line arg)
+  - [X] Support specifying domain & site name
+  - [X] Support more granular cleaning options
 - [ ] Refactor the stats logic to be more efficient (not necessary currently due to fast enough execution time)
+  - [ ] Pretty up the display
