@@ -21,7 +21,7 @@ if config['site']['clean_image_tags']:
     substitution = r'<Image>\1</Image>'
     modified_input = re.sub(regex_image, substitution, modified_input)
 
-# Clean the Image paths 
+# Clean the Image paths
 if config['site']['clean_image_path']:
     regex_image_path = r'src="https:\/\/' + config['site']['name'] + r'\.umich\.edu(.*?)"'
     substitution = r'src="\1"'
