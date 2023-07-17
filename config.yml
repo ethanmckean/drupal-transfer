@@ -2,6 +2,8 @@ site:
   name: SITE NAME HERE
   subdirectory_path_name: SUBDIRECTORY PATH NAME HERE
   subdirectory_path: false
+  convert_http: true
+  note_accordions: true
   clean_href: true
   clean_image_tags: true
   clean_image_path: true

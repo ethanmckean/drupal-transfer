@@ -10,9 +10,15 @@ with open('config.yml', 'r') as file:
     config = yaml.safe_load(file)
 
 # Convert all http to https
-reg = r'href="http'
-sub = r'href="https'
-modified_input = re.sub(reg,sub,input)
+if config['site']['convert_http']:
+    reg = r'href="http'
+    sub = r'href="https'
+    modified_input = re.sub(reg,sub,input)
+
+# Output pages with accordions
+if config['site']['note_accordions']:
+    regex = r'accordion.*?<Image></Image>.*?<Path>(.*?)</Path>'
+    print('Pages with accordions:', re.findall(regex, input, re.DOTALL))
 
 # Clean the HREFs
 if config['site']['clean_href']:
