@@ -9,6 +9,11 @@ with open('export.xml', 'r') as file:
 with open('config.yml', 'r') as file:
     config = yaml.safe_load(file)
 
+# Convert all http to https
+reg = r'href="http'
+sub = r'href="https'
+modified_input = re.sub(reg,sub,input)
+
 # Clean the HREFs
 if config['site']['clean_href']:
     regex = r'href="https:\/\/' + config['site']['name'] + r'\.umich\.edu(.*?)"'
