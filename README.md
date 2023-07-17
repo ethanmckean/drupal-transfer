@@ -16,6 +16,10 @@ Python3 is required for `script.py`
 - Run the script: `python3 script.py`
 - Configure a feed import and upload `out.xml` to your new Drupal site!
 
+### Misc
+`remove_google_redirect.ahk`
+- Removes google redirect from links using [AHK](https://github.com/AutoHotkey/AutoHotkey)
+
 ## TODO
 - [ ] ~~Add command line options (and/or args)~~
   - Replaced in favor of configuration file
