@@ -17,8 +17,8 @@ if config['site']['convert_http']:
 
 # Output pages with accordions
 if config['site']['note_accordions']:
-    regex = r'<Body>[\s\S]*?div class="accordion"[\s\S]*?</Body>[\s\S]*?<Path>(/[^<]+)</Path>'
-    print('Pages with accordions:', re.findall(regex, input))
+    regex_accordions = r'<Body>[\s\S]*?div class="accordion"[\s\S]*?</Body>[\s\S]*?<Path>(/[^<]+)</Path>'
+    print('Pages with accordions:', re.findall(regex_accordions, input))
 
 # Clean the HREFs
 if config['site']['clean_href']:
