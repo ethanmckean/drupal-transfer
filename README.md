@@ -19,6 +19,8 @@ Python3 is required for `script.py`
 ### Misc
 `remove_google_redirect.ahk`
 - Removes google redirect from links using [AHK](https://github.com/AutoHotkey/AutoHotkey)
+`remove_site_url.ahk`
+- Removes domain from source (useful for when copying + pasting). Technically it could implement a YAML [parser](https://github.com/HotKeyIt/Yaml) but the overhead would be unnecessary so for now just modify `[DOMAIN HERE]` to the intended domain to remove.
 
 ## TODO
 - [ ] ~~Add command line options (and/or args)~~
