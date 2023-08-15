@@ -27,7 +27,7 @@ if config['site']['clean_href']:
     modified_input = re.sub(regex_href, substitution, modified_input)
 
 if config['site']['clean_href'] and config['site']['subdirectory_path']:
-    regex_href_sub = r'href="\/' + config['site']['subdirectory_path_name'] + r'(.*?)\/'
+    regex_href_sub = r'href="\/' + config['site']['subdirectory_path_name'] + r'(.*?)"'
     substitution = r'href="\1"'
     modified_input = re.sub(regex_href_sub, substitution, modified_input)
 
