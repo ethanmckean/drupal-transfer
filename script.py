@@ -11,20 +11,20 @@ with open('config.yml', 'r') as file:
 
 # Convert all http to https
 if config['site']['convert_http']:
-    reg = r'href="http'
-    sub = r'href="https'
+    reg = r'href="http:'
+    sub = r'href="https:'
     modified_input = re.sub(reg,sub,input)
 
 # Output pages with accordions
 if config['site']['note_accordions']:
     regex_accordions = r'<Body>[\s\S]*?div class="accordion"[\s\S]*?</Body>[\s\S]*?<Path>(/[^<]+)</Path>'
-    print('Pages with accordions:', re.findall(regex_accordions, input))
+    print('Pages with accordions:', re.findall(regex_accordions, modified_input))
 
 # Clean the HREFs
 if config['site']['clean_href']:
     regex = r'href="https:\/\/' + config['site']['name'] + r'\.umich\.edu(.*?)"'
     substitution = r'href="\1"'
-    modified_input = re.sub(regex, substitution, input)
+    modified_input = re.sub(regex, substitution, modified_input)
 
 # Clean the Image tags
 if config['site']['clean_image_tags']:
