@@ -22,9 +22,14 @@ if config['site']['note_accordions']:
 
 # Clean the HREFs
 if config['site']['clean_href']:
-    regex = r'href="https:\/\/' + config['site']['name'] + r'\.umich\.edu(.*?)"'
+    regex_href = r'href="https:\/\/' + config['site']['name'] + r'\.umich\.edu(.*?)"'
     substitution = r'href="\1"'
-    modified_input = re.sub(regex, substitution, modified_input)
+    modified_input = re.sub(regex_href, substitution, modified_input)
+
+if config['site']['clean_href'] and config['site']['subdirectory_path']:
+    regex_href_sub = r'href="\/' + config['site']['subdirectory_path_name'] + r'(.*?)\/'
+    substitution = r'href="\1"'
+    modified_input = re.sub(regex_href_sub, substitution, modified_input)
 
 # Clean the Image tags
 if config['site']['clean_image_tags']:
@@ -58,7 +63,7 @@ print("# btn danger = ", len(re.findall(regex_btn, input)))
 with open('out.xml', 'w') as file:
     file.write(modified_input)
 
-print("Cleaned ", len(re.findall(regex, input)), " hrefs")
+print("Cleaned ", len(re.findall(regex_href, input)), " hrefs")
 
 print("Fixed ", len(re.findall(regex_image, input)), " images")
 
