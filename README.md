@@ -29,6 +29,6 @@ Python3 is required for `script.py` (3.7 and greater to ensure proper usage due 
   - [ ] Support specifying folder with input and output xml files
   - [X] Support specifying domain & site name
   - [X] Support more granular cleaning options
-- [ ] Refactor the entire program logic (reduce code repetition while maintaining extensibility)
+- [X] Refactor the entire program logic (reduce code repetition while maintaining extensibility)
 - [ ] Refactor the stats logic to be more efficient (not necessary currently due to fast enough execution time)
   - [ ] Pretty up the display
