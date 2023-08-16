@@ -11,7 +11,7 @@ Template configuration may differ per site.
 - Save and click "view Data export" (or navigate to the export path).
 
 ### Cleaning
-Python3 is required for `script.py`
+Python3 is required for `script.py` (3.7 and greater to ensure proper usage due to dictionary order)
 - Ensure `export.xml` is in the same folder
 - Run the script: `python3 script.py`
 - Configure a feed import and upload `out.xml` to your new Drupal site!
