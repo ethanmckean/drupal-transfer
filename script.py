@@ -7,46 +7,46 @@ with open('export.xml', 'r') as file:
 
 # Read config options
 with open('config.yml', 'r') as file:
-    config = yaml.safe_load(file)
+    config = yaml.safe_load(file)['site']
 
 # Convert all http to https
-if config['site']['convert_http']:
+if config['convert_http']:
     reg = r'href="http:'
     sub = r'href="https:'
     modified_input = re.sub(reg,sub,input)
 
 # Output pages with accordions
-if config['site']['note_accordions']:
+if config['note_accordions']:
     regex_accordions = r'<Body>[\s\S]*?div class="accordion"[\s\S]*?</Body>[\s\S]*?<Path>(/[^<]+)</Path>'
     print('Pages with accordions:', re.findall(regex_accordions, modified_input))
 
 # Clean the HREFs
-if config['site']['clean_href']:
-    regex_href = r'href="https:\/\/' + config['site']['name'] + r'\.umich\.edu(.*?)"'
+if config['clean_href']:
+    regex_href = r'href="https:\/\/' + config['name'] + r'\.umich\.edu(.*?)"'
     substitution = r'href="\1"'
     modified_input = re.sub(regex_href, substitution, modified_input)
 
 # Clean the Image tags
-if config['site']['clean_image_tags']:
+if config['clean_image_tags']:
     regex_image = r'<Image>.*src="(.*?)".*</Image>'
     substitution = r'<Image>\1</Image>'
     modified_input = re.sub(regex_image, substitution, modified_input)
 
 # Clean the Image paths
-if config['site']['clean_image_path']:
-    regex_image_path = r'src="https:\/\/' + config['site']['name'] + r'\.umich\.edu(.*?)"'
+if config['clean_image_path']:
+    regex_image_path = r'src="https:\/\/' + config['name'] + r'\.umich\.edu(.*?)"'
     substitution = r'src="\1"'
     modified_input = re.sub(regex_image_path, substitution, modified_input)
 
 # Change button class (btn-danger deprecated in our instance of d9)
-if config['site']['clean_button']:
+if config['clean_button']:
     regex_btn = r'<a class(.*)btn-danger'
     substitution = r'<a class\1btn-error'
     modified_input = re.sub(regex_btn, substitution, modified_input)
 
 # Clean the Path (parents, any site with subdomain as part of the URL path)
-if config['site']['subdirectory_path'] and config['site']['clean_subdirectory_path']:
-    regex_path = r'<Path>/' + config['site']['subdirectory_path_name'] + r'(.*)</Path>'
+if config['subdirectory_path'] and config['clean_subdirectory_path']:
+    regex_path = r'<Path>/' + config['subdirectory_path_name'] + r'(.*)</Path>'
     substitution = r'<Path>\1</Path>'
     modified_input = re.sub(regex_path, substitution, modified_input)
 
